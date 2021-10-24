@@ -57,7 +57,7 @@ define(['../accUtils', 'knockout', 'ojs/ojarraydataprovider', 'ojs/ojresponsiveu
         { name: "Pie diagram", id: "pie", icons: "oj-ux-ico-success-s" },
         { name: "Area diagram", id: "area", icons: "oj-ux-ico-chat-on" },
       ];
-      
+
       self.dataProvider = new ArrayDataProvider(data, { keyAttributes: "id" });
         
       self.selectedItem = ko.observable("home");
@@ -66,7 +66,9 @@ define(['../accUtils', 'knockout', 'ojs/ojarraydataprovider', 'ojs/ojresponsiveu
 
       if (mdQuery) {
         self.medium = ResponsiveKnockoutUtils.createMediaQueryObservable(mdQuery);
-      }  
+      }
+
+      self.selectedItem = ko.observable('bar');
     }
 
     /*

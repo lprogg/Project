@@ -28,9 +28,19 @@
                        <oj-bind-text value="[[item.data.name]]"> </oj-bind-text>
                     </a>
                   </li>
-                 </template>
-             </oj-tab-bar>
+                </template>
+              </oj-tab-bar>
 
+              <div class="oj-label">
+                <div class="oj-sm-padding-3x-vertical">
+                  <label for="curr-selection">
+                    The selected diagram is:&nbsp;</label>
+                  <span id="curr-selection-value">
+                    <oj-bind-text value="[[selectedItem]]"></oj-bind-text>
+                  </span>
+                </div>
+              </div>
+              
               <div class="oj-flex"
                    :class="[[{'oj-sm-flex-direction-column': dircolumn()}]]">
                 <div class="oj-flex-item oj-bg-brand-30">Child Container 1</div>
