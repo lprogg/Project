@@ -27,7 +27,7 @@
 }
 
 .oj-bg-neutral-0 {
-  border-color: rgb(199, 236, 236);
+  border-color: green;
   border-style: dotted;
 }
 
@@ -41,9 +41,12 @@
   color:darkgreen;
 }
 
+table {
+  width: 100%;
+}
+
 table, th, td {
   border: 1px solid black;
-  width: 100%;
 }
 
 th, td {

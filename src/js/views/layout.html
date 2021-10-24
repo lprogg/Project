@@ -44,28 +44,31 @@
               <div class="oj-flex"
                    :class="[[{'oj-sm-flex-direction-column': dircolumn()}]]">
                 
-                <div class="oj-flex-item oj-panel oj-bg-brand-30">
-
+                <div class="oj-flex-item oj-panel oj-bg-brand-30 oj-sm-only-hide oj-md-only-hide">
+                  
                   <div id="containerDiv" class="oj-flex oj-sm-flex-direction-column">
-                    <div class="oj-flex-item oj-sm-margin-4x-vertical">
-                      <oj-combobox-one id="combobox" value="{{selectedItem}}"
-                      label-hint="Select diagram type" label-edge="inside"
-                      class="oj-form-control-max-width-md">
-                        <oj-option value="pie">Pie</oj-option>
-                        <oj-option value="line">Line</oj-option>
-                        <oj-option value="bar">Bar</oj-option>
-                        <oj-option value="funnel">Funnel</oj-option>
-                        <oj-option value="area">Area</oj-option>
-                        <oj-option value="pyramid">Pyramid</oj-option>
-                      </oj-combobox-one>
-                      <div class="selected-value">
-                        <div>Current selected value: 
-                          <oj-bind-text value="[[selectedItem]]"></oj-bind-text>
+                    <oj-collapsible expanded="true" data-oj-binding-provider="none">
+                      <h6 slot="header"></h6>
+                      <div class="oj-flex-item oj-sm-margin-4x-vertical">
+                        <oj-combobox-one id="combobox" value="{{selectedItem}}"
+                        label-hint="Select diagram type" label-edge="inside"
+                        class="oj-form-control-max-width-md">
+                          <oj-option value="pie">Pie</oj-option>
+                          <oj-option value="line">Line</oj-option>
+                          <oj-option value="bar">Bar</oj-option>
+                          <oj-option value="funnel">Funnel</oj-option>
+                          <oj-option value="area">Area</oj-option>
+                          <oj-option value="pyramid">Pyramid</oj-option>
+                        </oj-combobox-one>
+                        <div class="selected-value">
+                          <div>Current selected value: 
+                            <oj-bind-text value="[[selectedItem]]"></oj-bind-text>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    </oj-collapsible>
                   </div>
-
+                  
                 </div>
 
                 <div class="oj-flex-item oj-panel oj-bg-brand-30">
@@ -97,25 +100,32 @@
             <div class="oj-flex-item oj-bg-info-30 oj-sm-only-hide oj-md-only-hide">Informatics first year
               <div class="oj-flex"
                 :class="[[{'oj-sm-flex-direction-column': dircolumn()}]]">
-                <div class="oj-flex-item oj-bg-neutral-0">List
+                <div class="oj-flex-item oj-bg-brand-30">List
                   <table>
                     <thead>
                       <tr>
+                        <th>ID</th>
                         <th>Firstname Lastname</th>
                         <th>Alg</th>
                         <th>Asc</th>
                         <th>Bir</th>
+                        <th>Mean</th>
                       </tr>
                     </thead>
                     <tbody data-bind='foreach: dataList'>
                       <tr>
 
+                        <td style="padding:10px; text-align: center">
+                          <span data-bind="text: $parent.id[$index()]"></span>
+                        </td>
+
                         <td style="padding:10px; text-align: left">
                           <span data-bind="text: $parent.firstFullName[$index()]"></span>
                         </td>
 
-                        <td data-bind="text: $data.alg"
-                          style="padding:10px; text-align: center"></td>
+                        <td style="padding:10px; text-align: center">
+                          <oj-bind-text value="[[$data.alg]]"></oj-bind-text>
+                        </td>
 
                         <td style="padding:10px; text-align: center">
                           <oj-bind-text value="[[$data.asc]]"></oj-bind-text>
@@ -125,13 +135,13 @@
                           <oj-bind-text value="[[$data.bir]]"></oj-bind-text>
                         </td>
 
+                        <td style="padding:10px; text-align: center">
+                          <span data-bind="text: $parent.mean[$index()]"></span>
+                        </td>
+
                       </tr>
                     </tbody>
                   </table>
-                    
-
-
-
                 </div>
               </div>
             </div>

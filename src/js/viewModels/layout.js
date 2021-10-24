@@ -19,7 +19,8 @@ define([
   'ojs/ojcheckboxset',
   'ojs/ojnavigationlist',
   'ojs/ojselectcombobox',
-  'ojs/ojchart'
+  'ojs/ojchart',
+  'ojs/ojcollapsible'
 ],
  function(accUtils, ko, basicDataJson, ArrayDataProvider, ResponsiveUtils, ResponsiveKnockoutUtils) {
     function LayoutViewModel() {
@@ -91,11 +92,14 @@ define([
       ]);
 
       self.firstFullName = ko.observable();
+      self.mean = ko.observable()
+      self.id = ko.observable()
 
-      self.fullName = ko.computed(function() {
+      self.allData = ko.computed(function() {
         for(let i = 0; i < self.dataList().length; i++) {
-          self.firstFullName[i] = self.dataList()[i].firstName + " "
-          + self.dataList()[i].lastName;
+          self.firstFullName[i] = self.dataList()[i].firstName + " " + self.dataList()[i].lastName;
+          self.mean[i] = ((self.dataList()[i].alg + self.dataList()[i].asc + self.dataList()[i].bir)/3).toFixed(2);
+          self.id[i] = i;
         }
       });
     }
