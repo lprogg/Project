@@ -41,6 +41,14 @@
   color:darkgreen;
 }
 
+table, th, td {
+  border: 1px solid black;
+}
+
+th, td {
+  padding: 2px;
+}
+
 .app-title {
   margin-top: 35px;
   margin-left: 15px;

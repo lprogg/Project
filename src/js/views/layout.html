@@ -94,10 +94,45 @@
                 
               </div>
             </div>
-            <div class="oj-flex-item oj-bg-info-30 oj-sm-only-hide oj-md-only-hide">Parent Container 2
+            <div class="oj-flex-item oj-bg-info-30 oj-sm-only-hide oj-md-only-hide">Informatics first year
               <div class="oj-flex"
                 :class="[[{'oj-sm-flex-direction-column': dircolumn()}]]">
-                <div class="oj-flex-item oj-bg-neutral-0">Child Container 3</div>
+                <div class="oj-flex-item oj-bg-neutral-0">List
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Firstname Lastname</th>
+                        <th>Alg</th>
+                        <th>Asc</th>
+                        <th>Bir</th>
+                      </tr>
+                    </thead>
+                    <tbody data-bind='foreach: dataCatalog'>
+                      <tr>
+
+                        <td style="padding:10px; text-align: left">
+                          <span data-bind="text: $parent.firstFullName[$index()]"></span>
+                        </td>
+
+                        <td data-bind="text: $data.alg"
+                          style="padding:10px; text-align: center"></td>
+
+                        <td style="padding:10px; text-align: center">
+                          <oj-bind-text value="[[$data.asc]]"></oj-bind-text>
+                        </td>
+
+                        <td style="padding:10px; text-align: center">
+                          <oj-bind-text value="[[$data.bir]]"></oj-bind-text>
+                        </td>
+
+                      </tr>
+                    </tbody>
+                  </table>
+                    
+
+
+
+                </div>
               </div>
             </div>
           </div>
