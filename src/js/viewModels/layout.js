@@ -82,6 +82,22 @@ define([
       self.stackValue = ko.observable('off');
       self.orientationValue = ko.observable('vertical');
       self.dataProviderJson = new ArrayDataProvider(JSON.parse(basicDataJson), { keyAttributes: 'id' });
+
+      self.dataList = ko.observableArray([
+        { firstName: 'Maria', lastName: 'Popescu', alg: 10, asc: 10, bir: 9 },
+        { firstName: 'George', lastName: 'Vasilescu', alg: 9, asc: 10, bir: 9 },
+        { firstName: 'Claudia', lastName: 'Dumitru', alg: 10, asc: 9, bir: 9 },
+        { firstName: 'Andrei', lastName: 'Marin', alg: 8, asc: 10, bir: 10 }
+      ]);
+
+      self.firstFullName = ko.observable();
+
+      self.fullName = ko.computed(function() {
+        for(let i = 0; i < self.dataList().length; i++) {
+          self.firstFullName[i] = self.dataList()[i].firstName + " "
+          + self.dataList()[i].lastName;
+        }
+      });
     }
 
     /*
