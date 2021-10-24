@@ -38,6 +38,7 @@ define(['knockout', 'ojs/ojcontext', 'ojs/ojmodule-element-utils', 'ojs/ojknocko
         { path: 'home', detail: { label: 'Home', iconClass: 'oj-ux-ico-home' } },
         { path: 'layout', detail: { label: 'Layout', iconClass: 'oj-ux-ico-color-palette' } },
         { path: 'charts', detail: { label: 'Charts', iconClass: 'oj-ux-ico-bar-chart' } },
+        { path: 'forms', detail: { label: 'Forms', iconClass: 'oj-ux-ico-book' } },
         { path: 'about', detail: { label: 'About', iconClass: 'oj-ux-ico-information-s' } }
       ];
 

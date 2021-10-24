@@ -6,11 +6,11 @@
  * @ignore
  */
 /*
- * Your customer ViewModel code goes here
+ * Your about ViewModel code goes here
  */
 define(['../accUtils'],
  function(accUtils) {
-    function ChartsViewModel() {
+    function FormsViewModel() {
       // Below are a set of the ViewModel methods invoked by the oj-module component.
       // Please reference the oj-module jsDoc for additional information.
 
@@ -23,8 +23,8 @@ define(['../accUtils'],
        * after being disconnected.
        */
       this.connected = () => {
-        accUtils.announce('Charts page loaded.', 'assertive');
-        document.title = "Charts";
+        accUtils.announce('Forms page loaded.', 'assertive');
+        document.title = "Forms";
         // Implement further logic if needed
       };
 
@@ -49,6 +49,6 @@ define(['../accUtils'],
      * return a constructor for the ViewModel so that the ViewModel is constructed
      * each time the view is displayed.
      */
-    return ChartsViewModel;
+    return FormsViewModel;
   }
 );

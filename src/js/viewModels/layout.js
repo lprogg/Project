@@ -23,8 +23,8 @@ define(['../accUtils'],
        * after being disconnected.
        */
       this.connected = () => {
-        accUtils.announce('Incidents page loaded.', 'assertive');
-        document.title = "Incidents";
+        accUtils.announce('Layout page loaded.', 'assertive');
+        document.title = "Layout";
         // Implement further logic if needed
       };
 

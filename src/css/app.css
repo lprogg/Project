@@ -21,6 +21,11 @@
   font-size: 20px;
 }
 
+.oj-ux-ico-book::before {
+  font-size: 24px;
+  color: coral;
+}
+
 .oj-ux-ico-home::before {
   font-size: 24px;
   color: green;
