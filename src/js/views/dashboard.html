@@ -5,7 +5,23 @@
  -->
 <div class="oj-hybrid-padding">
   <h1>Dashboard Content Area</h1>
-  <div>
-      To change the content of this section, you will make edits to the dashboard.html file located in the /js/views folder.
-  </div>
+    <div class="oj-label oj-select-one">
+      <div id="containerDiv" class="oj-flex oj-sm-flex-direction-column">
+        <div class="oj-flex-item oj-sm-margin-4x-vertical">
+          <oj-combobox-one id="combobox1" value="{{firstValue}}"
+          label-hint="Select diagram type" label-edge="inside"
+          class="oj-form-control-max-width-md">
+            <oj-option value="pie">Pie</oj-option>
+            <oj-option value="line">Line</oj-option>
+            <oj-option value="bar">Bar</oj-option>
+          </oj-combobox-one>
+          <div class="oj-sm-margin-4x-top">
+            <div>Current selected value</div>
+              <span>
+                <oj-bind-text value="[[firstValue]]"></oj-bind-text>
+              </span>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>

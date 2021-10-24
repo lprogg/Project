@@ -8,8 +8,8 @@
 /*
  * Your dashboard ViewModel code goes here
  */
-define(['../accUtils'],
- function(accUtils) {
+define(['../accUtils', "knockout", "ojs/ojarraydataprovider", "ojs/ojknockout", "ojs/ojselectcombobox"],
+ function(accUtils, ko, ArrayDataProvider) {
     function DashboardViewModel() {
       // Below are a set of the ViewModel methods invoked by the oj-module component.
       // Please reference the oj-module jsDoc for additional information.
@@ -42,6 +42,9 @@ define(['../accUtils'],
       this.transitionCompleted = () => {
         // Implement if needed
       };
+
+      let self = this;
+      self.firstValue = ko.observable("pie");
     }
 
     /*
