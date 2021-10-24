@@ -47,7 +47,7 @@ define(['../accUtils', 'knockout', 'ojs/ojarraydataprovider', 'text!./basicData.
       self.firstValue = ko.observable('bar');
       self.stackValue = ko.observable('off');
       self.orientationValue = ko.observable('vertical');
-      self.dataProvider = new ArrayDataProvider(JSON.parse(data), { keyAttributes: 'id' })
+      self.dataProvider = new ArrayDataProvider(JSON.parse(data), { keyAttributes: 'id' });
     }
 
     /*

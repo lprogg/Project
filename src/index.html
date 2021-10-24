@@ -92,14 +92,14 @@
                 <span>Application Navigation</span>
               </oj-button>
             </div>
-            <div class="oj-flex-bar-middle oj-sm-align-items-baseline">
-              <span role="img" title="Charts Logo" alt="Charts Logo">
+            <div style="margin-top: 15px;">
+              <span role="img" title="Application Logo" alt="Application Logo">
                 <img src="css/images/Gopher.png" height="50px">
               </span>
-              <h1 class="oj-sm-only-hide oj-web-applayout-header-title" title="Application Name"><oj-bind-text value="[[appName]]"></oj-bind-text></h1>
             </div>
-            <div class="oj-flex-bar-end">
-              <!-- Responsive Toolbar -->
+            <h1 class="app-title" title="Application Name"><oj-bind-text value="[[appName]]"></oj-bind-text></h1>
+            
+            <!-- <div class="oj-flex-bar-end">
               <oj-toolbar>
                 <oj-menu-button id="userMenu" display="[[smScreen() ? 'icons' : 'all']]" chroming="borderless">
                   <span><oj-bind-text value="[[userLogin]]"></oj-bind-text></span>
@@ -112,7 +112,7 @@
                   </oj-menu>
                 </oj-menu-button>
               </oj-toolbar>
-            </div>
+            </div> -->
           </div>
           <div role="navigation" class="oj-web-applayout-max-width oj-web-applayout-navbar">
             <oj-navigation-list id="navTabBar" class="oj-sm-only-hide oj-md-condense oj-md-justify-content-flex-end"

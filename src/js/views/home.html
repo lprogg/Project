@@ -18,11 +18,10 @@
             <oj-option value="area">Area</oj-option>
             <oj-option value="pyramid">Pyramid</oj-option>
           </oj-combobox-one>
-          <div class="oj-sm-margin-4x-top">
-            <div>Current selected value</div>
-              <span>
-                <oj-bind-text value="[[firstValue]]"></oj-bind-text>
-              </span>
+          <div class="selected-value">
+            <div>Current selected value: 
+              <oj-bind-text value="[[firstValue]]"></oj-bind-text>
+            </div>
           </div>
           <div id='chart-container'>
             <oj-chart

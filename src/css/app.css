@@ -6,6 +6,21 @@
         This is where any of your application specific styles should be included
 */
 
+.app-title {
+  margin-top: 35px;
+  margin-left: 15px;
+  font-size: 20px;
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.500);
+}
+
+.selected-value {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-transform: capitalize;
+  font-size: 20px;
+}
+
 .oj-ux-ico-home::before {
   font-size: 24px;
   color: green;
