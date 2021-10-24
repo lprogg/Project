@@ -6,7 +6,7 @@
  * @ignore
  */
 /*
- * Your dashboard ViewModel code goes here
+ * Your home ViewModel code goes here
  */
 define(['../accUtils', 'knockout', 'ojs/ojarraydataprovider', 'text!./basicData.json', 'ojs/ojknockout', 'ojs/ojselectcombobox', 'ojs/ojchart'],
  function(accUtils, ko, ArrayDataProvider, data) {
@@ -23,8 +23,8 @@ define(['../accUtils', 'knockout', 'ojs/ojarraydataprovider', 'text!./basicData.
        * after being disconnected.
        */
       this.connected = () => {
-        accUtils.announce('Dashboard page loaded.', 'assertive');
-        document.title = "Dashboard";
+        accUtils.announce('Home page loaded.', 'assertive');
+        document.title = 'Home';
         // Implement further logic if needed
       };
 
@@ -44,7 +44,7 @@ define(['../accUtils', 'knockout', 'ojs/ojarraydataprovider', 'text!./basicData.
       };
 
       let self = this;
-      self.firstValue = ko.observable('pie');
+      self.firstValue = ko.observable('bar');
       self.stackValue = ko.observable('off');
       self.orientationValue = ko.observable('vertical');
       self.dataProvider = new ArrayDataProvider(JSON.parse(data), { keyAttributes: 'id' })
