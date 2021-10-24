@@ -6,11 +6,11 @@
  * @ignore
  */
 /*
- * Your dashboard ViewModel code goes here
+ * Your customer ViewModel code goes here
  */
-define(['../accUtils', 'knockout', 'ojs/ojarraydataprovider', 'text!./basicData.json', 'ojs/ojknockout', 'ojs/ojselectcombobox', 'ojs/ojchart'],
- function(accUtils, ko, ArrayDataProvider, data) {
-    function DashboardViewModel() {
+define(['../accUtils'],
+ function(accUtils) {
+    function ChartsViewModel() {
       // Below are a set of the ViewModel methods invoked by the oj-module component.
       // Please reference the oj-module jsDoc for additional information.
 
@@ -23,8 +23,8 @@ define(['../accUtils', 'knockout', 'ojs/ojarraydataprovider', 'text!./basicData.
        * after being disconnected.
        */
       this.connected = () => {
-        accUtils.announce('Dashboard page loaded.', 'assertive');
-        document.title = "Dashboard";
+        accUtils.announce('Customers page loaded.', 'assertive');
+        document.title = "Customers";
         // Implement further logic if needed
       };
 
@@ -42,12 +42,6 @@ define(['../accUtils', 'knockout', 'ojs/ojarraydataprovider', 'text!./basicData.
       this.transitionCompleted = () => {
         // Implement if needed
       };
-
-      let self = this;
-      self.firstValue = ko.observable('pie');
-      self.stackValue = ko.observable('off');
-      self.orientationValue = ko.observable('vertical');
-      self.dataProvider = new ArrayDataProvider(JSON.parse(data), { keyAttributes: 'id' })
     }
 
     /*
@@ -55,6 +49,6 @@ define(['../accUtils', 'knockout', 'ojs/ojarraydataprovider', 'text!./basicData.
      * return a constructor for the ViewModel so that the ViewModel is constructed
      * each time the view is displayed.
      */
-    return DashboardViewModel;
+    return ChartsViewModel;
   }
 );

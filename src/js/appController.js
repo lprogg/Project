@@ -34,10 +34,10 @@ define(['knockout', 'ojs/ojcontext', 'ojs/ojmodule-element-utils', 'ojs/ojknocko
       this.mdScreen = ResponsiveKnockoutUtils.createMediaQueryObservable(mdQuery);
 
       let navData = [
-        { path: '', redirect: 'dashboard' },
-        { path: 'dashboard', detail: { label: 'Dashboard', iconClass: 'oj-ux-ico-bar-chart' } },
-        { path: 'incidents', detail: { label: 'Incidents', iconClass: 'oj-ux-ico-fire' } },
-        { path: 'customers', detail: { label: 'Customers', iconClass: 'oj-ux-ico-contact-group' } },
+        { path: '', redirect: 'home' },
+        { path: 'home', detail: { label: 'Home', iconClass: 'oj-ux-ico-home' } },
+        { path: 'layout', detail: { label: 'Layout', iconClass: 'oj-ux-ico-color-palette' } },
+        { path: 'charts', detail: { label: 'Charts', iconClass: 'oj-ux-ico-bar-chart' } },
         { path: 'about', detail: { label: 'About', iconClass: 'oj-ux-ico-information-s' } }
       ];
 
@@ -77,11 +77,9 @@ define(['knockout', 'ojs/ojcontext', 'ojs/ojmodule-element-utils', 'ojs/ojknocko
 
       // Footer
       this.footerLinks = [
-        {name: 'About Oracle', linkId: 'aboutOracle', linkTarget:'http://www.oracle.com/us/corporate/index.html#menu-about'},
-        { name: "Contact Us", id: "contactUs", linkTarget: "http://www.oracle.com/us/corporate/contact/index.html" },
-        { name: "Legal Notices", id: "legalNotices", linkTarget: "http://www.oracle.com/us/legal/index.html" },
-        { name: "Terms Of Use", id: "termsOfUse", linkTarget: "http://www.oracle.com/us/legal/terms/index.html" },
-        { name: "Your Privacy Rights", id: "yourPrivacyRights", linkTarget: "http://www.oracle.com/us/legal/privacy/index.html" },
+        { name: 'Oracle Jet', linkId: 'oraclejetid', linkTarget: 'https://www.oracle.com/webfolder/technetwork/jet/index.html' },
+        { name: "Cookbook", id: "cookbookid", linkTarget: 'https://www.oracle.com/webfolder/technetwork/jet/jetCookbook.html' },
+        { name: "Tutorials", id: "tutorialsid", linkTarget: 'https://docs.oracle.com/en/middleware/developer-tools/jet/11.1/tutorials.html' }
       ];
      }
      // release the application bootstrap busy state
