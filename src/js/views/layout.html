@@ -6,6 +6,54 @@
 <div class="oj-hybrid-padding">
   <h1>Layout Content Area</h1>
   <div>
-      To change the content of this section, you will make edits to the layout.html file located in the /js/views folder.
+    <div id="container">
+      <div class="oj-flex demo-flex-display"
+           :class="[[{'oj-sm-flex-direction-column': dircolumn()}]]">
+        <div class="oj-flex-item oj-bg-neutral-0">Main Div Container
+          <div class="oj-flex"
+               :class="[[{'oj-sm-flex-direction-column': dircolumn()}]]">
+            <div class="oj-flex-item oj-bg-danger-30">
+              
+              <oj-tab-bar selection="{{selectedItem}}" 
+                        display="[[medium() ? 'all' : 'icons']]" 
+                        layout="[[medium() ? 'stretch' : 'condense']]"  
+                        edge="top"  
+                        data="[[dataProvider]]"
+                        id="tabbar"
+                        class="oj-sm-justify-content-center oj-md-justify-content-center oj-lg-justify-content-flex-end">
+                <template slot="itemTemplate" data-oj-as="item">
+                  <li :class="[[{'oj-disabled' : item.data.disabled === 'true'}]]">
+                    <a href="#">
+                       <span :class="[['oj-tabbar-item-icon ' + item.data.icons]]"></span>
+                       <oj-bind-text value="[[item.data.name]]"> </oj-bind-text>
+                    </a>
+                  </li>
+                 </template>
+             </oj-tab-bar>
+
+              <div class="oj-flex"
+                   :class="[[{'oj-sm-flex-direction-column': dircolumn()}]]">
+                <div class="oj-flex-item oj-bg-brand-30">Child Container 1</div>
+                <div class="oj-flex-item oj-bg-brand-30">Child Container 2</div>
+              </div>
+            </div>
+            <div class="oj-flex-item oj-bg-info-30">Parent Container 2
+              <div class="oj-flex"
+                :class="[[{'oj-sm-flex-direction-column': dircolumn()}]]">
+                <div class="oj-flex-item oj-bg-neutral-0">Child Container 3</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <span class="oj-sm-margin-4x-top">
+        <oj-checkboxset id=“dir” value="{{checkValue}}">
+          <oj-option id=“dirColumn” value="dirColumn">
+            add class 'oj-sm-flex-direction-column'
+          </oj-option>
+        </oj-checkboxset>
+      </span>
+    </div>
   </div>
 </div>

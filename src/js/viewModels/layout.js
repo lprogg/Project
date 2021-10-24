@@ -8,8 +8,8 @@
 /*
  * Your incidents ViewModel code goes here
  */
-define(['../accUtils'],
- function(accUtils) {
+define(['../accUtils', 'knockout', 'ojs/ojarraydataprovider', 'ojs/ojresponsiveutils', 'ojs/ojresponsiveknockoututils', 'ojs/ojknockout', 'ojs/ojcheckboxset', 'ojs/ojnavigationlist'],
+ function(accUtils, ko, ArrayDataProvider, ResponsiveUtils, ResponsiveKnockoutUtils) {
     function LayoutViewModel() {
       // Below are a set of the ViewModel methods invoked by the oj-module component.
       // Please reference the oj-module jsDoc for additional information.
@@ -42,6 +42,31 @@ define(['../accUtils'],
       this.transitionCompleted = () => {
         // Implement if needed
       };
+
+      let self = this;
+      self.checkValue = ko.observableArray();
+      self.dircolumn = ko.pureComputed(() => {
+        return !!(typeof self.checkValue()[0] !== 'undefined' &&
+        self.checkValue()[0] != null &&
+        self.checkValue()[0] === 'dirColumn');
+      });
+
+      const data = [
+        { name: "Bar diagram", id: "bar", icons: "oj-ux-ico-bar-chart" },
+        { name: "Line diagram", id: "line", icons: "oj-ux-ico-share" },
+        { name: "Pie diagram", id: "pie", icons: "oj-ux-ico-success-s" },
+        { name: "Area diagram", id: "area", icons: "oj-ux-ico-chat-on" },
+      ];
+      
+      self.dataProvider = new ArrayDataProvider(data, { keyAttributes: "id" });
+        
+      self.selectedItem = ko.observable("home");
+        
+      let mdQuery = ResponsiveUtils.getFrameworkQuery("md-up");
+
+      if (mdQuery) {
+        self.medium = ResponsiveKnockoutUtils.createMediaQueryObservable(mdQuery);
+      }  
     }
 
     /*

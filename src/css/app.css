@@ -6,6 +6,41 @@
         This is where any of your application specific styles should be included
 */
 
+.oj-bg-brand-10 {
+  border-color: gray;
+  border-style: dotted;
+}
+
+.oj-bg-brand-30 {
+  border-color: green;
+  border-style: dotted;
+}
+
+.oj-bg-danger-30 {
+  border-color: red;
+  border-style: outset;
+}
+
+.oj-bg-info-30 {
+  border-color: blue;
+  border-style: outset;
+}
+
+.oj-bg-neutral-0 {
+  border-color: rgb(199, 236, 236);
+  border-style: dotted;
+}
+
+.oj-ux-ico-success-s{
+  font-size: 24px;
+  color:blueviolet;
+}
+
+.oj-ux-ico-chat-on{
+  font-size: 24px;
+  color:darkgreen;
+}
+
 .app-title {
   margin-top: 35px;
   margin-left: 15px;
