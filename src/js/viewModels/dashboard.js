@@ -8,8 +8,8 @@
 /*
  * Your dashboard ViewModel code goes here
  */
-define(['../accUtils', "knockout", "ojs/ojarraydataprovider", "ojs/ojknockout", "ojs/ojselectcombobox"],
- function(accUtils, ko, ArrayDataProvider) {
+define(['../accUtils', 'knockout', 'ojs/ojarraydataprovider', 'text!./basicData.json', 'ojs/ojknockout', 'ojs/ojselectcombobox', 'ojs/ojchart'],
+ function(accUtils, ko, ArrayDataProvider, data) {
     function DashboardViewModel() {
       // Below are a set of the ViewModel methods invoked by the oj-module component.
       // Please reference the oj-module jsDoc for additional information.
@@ -44,7 +44,10 @@ define(['../accUtils', "knockout", "ojs/ojarraydataprovider", "ojs/ojknockout", 
       };
 
       let self = this;
-      self.firstValue = ko.observable("pie");
+      self.firstValue = ko.observable('pie');
+      self.stackValue = ko.observable('off');
+      self.orientationValue = ko.observable('vertical');
+      self.dataProvider = new ArrayDataProvider(JSON.parse(data), { keyAttributes: 'id' })
     }
 
     /*

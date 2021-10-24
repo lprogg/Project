@@ -8,7 +8,7 @@
     <div class="oj-label oj-select-one">
       <div id="containerDiv" class="oj-flex oj-sm-flex-direction-column">
         <div class="oj-flex-item oj-sm-margin-4x-vertical">
-          <oj-combobox-one id="combobox1" value="{{firstValue}}"
+          <oj-combobox-one id="combobox" value="{{firstValue}}"
           label-hint="Select diagram type" label-edge="inside"
           class="oj-form-control-max-width-md">
             <oj-option value="pie">Pie</oj-option>
@@ -20,6 +20,25 @@
               <span>
                 <oj-bind-text value="[[firstValue]]"></oj-bind-text>
               </span>
+          </div>
+          <div id='chart-container'>
+            <oj-chart
+              id="pie"
+              type="[[firstValue]]"
+              orientation="[[orientationValue]]"
+              stack="[[stackValue]]"
+              data="[[dataProvider]]"
+              animation-on-display="auto"
+              animation-on-data-change="auto"
+              hover-behavior="dim">
+              <template slot='itemTemplate' data-oj-as='item'>
+                <oj-chart-item 
+                  value='[[item.data.value]]' 
+                  group-id='[[ [item.data.group] ]]' 
+                  series-id='[[item.data.series]]'> 
+                </oj-chart-item>
+              </template>
+            </oj-chart>
           </div>
         </div>
       </div>
