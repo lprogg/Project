@@ -6,6 +6,26 @@
         This is where any of your application specific styles should be included
 */
 
+.oj-ux-ico-home::before {
+  font-size: 24px;
+  color: green;
+}
+
+.oj-ux-ico-color-palette::before {
+  font-size: 24px;
+  color: red;
+}
+
+.oj-ux-ico-bar-chart::before {
+  font-size: 24px;
+  color: blue;
+}
+
+.oj-ux-ico-information-s::before {
+  font-size: 24px;
+  color: black;
+}
+
 .sendOffScreen {
   position: absolute;
   left: -10000px;
