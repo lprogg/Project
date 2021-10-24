@@ -8,8 +8,20 @@
 /*
  * Your incidents ViewModel code goes here
  */
-define(['../accUtils', 'knockout', 'ojs/ojarraydataprovider', 'ojs/ojresponsiveutils', 'ojs/ojresponsiveknockoututils', 'ojs/ojknockout', 'ojs/ojcheckboxset', 'ojs/ojnavigationlist'],
- function(accUtils, ko, ArrayDataProvider, ResponsiveUtils, ResponsiveKnockoutUtils) {
+define([
+  '../accUtils',
+  'knockout',
+  'text!./basicData.json',
+  'ojs/ojarraydataprovider',
+  'ojs/ojresponsiveutils',
+  'ojs/ojresponsiveknockoututils',
+  'ojs/ojknockout',
+  'ojs/ojcheckboxset',
+  'ojs/ojnavigationlist',
+  'ojs/ojselectcombobox',
+  'ojs/ojchart'
+],
+ function(accUtils, ko, basicDataJson, ArrayDataProvider, ResponsiveUtils, ResponsiveKnockoutUtils) {
     function LayoutViewModel() {
       // Below are a set of the ViewModel methods invoked by the oj-module component.
       // Please reference the oj-module jsDoc for additional information.
@@ -60,8 +72,6 @@ define(['../accUtils', 'knockout', 'ojs/ojarraydataprovider', 'ojs/ojresponsiveu
 
       self.dataProvider = new ArrayDataProvider(data, { keyAttributes: "id" });
         
-      self.selectedItem = ko.observable("home");
-        
       let mdQuery = ResponsiveUtils.getFrameworkQuery("md-up");
 
       if (mdQuery) {
@@ -69,6 +79,9 @@ define(['../accUtils', 'knockout', 'ojs/ojarraydataprovider', 'ojs/ojresponsiveu
       }
 
       self.selectedItem = ko.observable('bar');
+      self.stackValue = ko.observable('off');
+      self.orientationValue = ko.observable('vertical');
+      self.dataProviderJson = new ArrayDataProvider(JSON.parse(basicDataJson), { keyAttributes: 'id' });
     }
 
     /*
