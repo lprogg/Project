@@ -91,13 +91,13 @@ define([
         { firstName: 'Andrei', lastName: 'Marin', alg: 8, asc: 10, bir: 10 }
       ]);
 
-      self.firstFullName = ko.observable();
+      self.fullName = ko.observable();
       self.mean = ko.observable()
       self.id = ko.observable()
 
       self.allData = ko.computed(function() {
         for(let i = 0; i < self.dataList().length; i++) {
-          self.firstFullName[i] = self.dataList()[i].firstName + " " + self.dataList()[i].lastName;
+          self.fullName[i] = self.dataList()[i].firstName + " " + self.dataList()[i].lastName;
           self.mean[i] = ((self.dataList()[i].alg + self.dataList()[i].asc + self.dataList()[i].bir)/3).toFixed(2);
           self.id[i] = i;
         }
