@@ -28,8 +28,6 @@ define(['knockout', 'ojs/ojcontext', 'ojs/ojmodule-element-utils', 'ojs/ojknocko
 
 
       // Media queries for repsonsive layouts
-      // const smQuery = ResponsiveUtils.getFrameworkQuery(ResponsiveUtils.FRAMEWORK_QUERY_KEY.SM_ONLY);
-      // this.smScreen = ResponsiveKnockoutUtils.createMediaQueryObservable(smQuery);
       const mdQuery = ResponsiveUtils.getFrameworkQuery(ResponsiveUtils.FRAMEWORK_QUERY_KEY.MD_UP);
       this.mdScreen = ResponsiveKnockoutUtils.createMediaQueryObservable(mdQuery);
 
@@ -37,6 +35,7 @@ define(['knockout', 'ojs/ojcontext', 'ojs/ojmodule-element-utils', 'ojs/ojknocko
         { path: '', redirect: 'home' },
         { path: 'home', detail: { label: 'Home', iconClass: 'oj-ux-ico-home' } },
         { path: 'layout', detail: { label: 'Layout', iconClass: 'oj-ux-ico-color-palette' } },
+        { path: 'crud', detail: { label: 'CRUD', iconClass: 'oj-ux-ico-archive' } },
         { path: 'charts', detail: { label: 'Charts', iconClass: 'oj-ux-ico-bar-chart' } },
         { path: 'forms', detail: { label: 'Forms', iconClass: 'oj-ux-ico-book' } },
         { path: 'about', detail: { label: 'About', iconClass: 'oj-ux-ico-information-s' } }
@@ -74,7 +73,6 @@ define(['knockout', 'ojs/ojcontext', 'ojs/ojmodule-element-utils', 'ojs/ojknocko
       // Application Name used in Branding Area
       this.appName = ko.observable("Charts");
       // User Info used in Global Navigation area
-      // this.userLogin = ko.observable("john.hancock@oracle.com");
 
       // Footer
       this.footerLinks = [

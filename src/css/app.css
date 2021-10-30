@@ -93,6 +93,11 @@ th, td {
   color: black;
 }
 
+.oj-ux-ico-archive::before {
+  font-size: 24;
+  color: orchid;
+}
+
 .sendOffScreen {
   position: absolute;
   left: -10000px;
