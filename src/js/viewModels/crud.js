@@ -58,9 +58,9 @@ define([
         // Implement if needed
       };
 
-      let self = this;
+      const self = this;
       
-      let deptArray = [
+      const deptArray = [
         { StudentNumber: 10, Name: 'Ionescu', Surname: 'Maria', Algorithms: 10, ASC: 9, Geometry: 10 },
         { StudentNumber: 20, Name: 'Popescu', Surname: 'Ioana', Algorithms: 9, ASC: 9, Geometry: 7 },
         { StudentNumber: 30, Name: 'Dumitru', Surname: 'Camila', Algorithms: 9, ASC: 10, Geometry: 9 },
@@ -94,6 +94,10 @@ define([
       self.inputASC = ko.observable(0);
       self.inputGeometry = ko.observable(0);
       
+      self.inputNameSurname = ko.computed(() => self.inputName() + " " + self.inputSurname());
+
+      self.inputMean = ko.computed(() => ((self.inputAlgorithms() + self.inputASC() + self.inputGeometry())/3).toFixed(2));
+
       self.firstSelected = ko.observable();
       self.disableSubmit = ko.observable(true);
       
@@ -143,7 +147,7 @@ define([
               }
           }
       };
-              
+      
       self.removeRow = () => {
           const element = document.getElementById("table");
           const currentRow = element.currentRow;
