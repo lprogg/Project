@@ -6,7 +6,7 @@
  * @ignore
  */
 /*
- * Your incidents ViewModel code goes here
+ * Your layout ViewModel code goes here
  */
 define([
   '../accUtils',

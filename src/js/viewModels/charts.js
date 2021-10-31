@@ -6,7 +6,7 @@
  * @ignore
  */
 /*
- * Your customer ViewModel code goes here
+ * Your charts ViewModel code goes here
  */
 define(['../accUtils'],
  function(accUtils) {

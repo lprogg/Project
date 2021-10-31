@@ -6,7 +6,7 @@
  * @ignore
  */
 /*
- * Your about ViewModel code goes here
+ * Your forms ViewModel code goes here
  */
 define(['../accUtils'],
  function(accUtils) {
