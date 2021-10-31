@@ -11,7 +11,6 @@
 define([
   '../accUtils',
   'knockout',
-  'text!./departmentData.json',
   'ojs/ojarraydataprovider',
   'ojs/ojbufferingdataprovider',
   'ojs/ojconverter-number',
@@ -25,7 +24,7 @@ define([
   'ojs/ojmessages',
   'ojs/ojtable'
 ],
- function(accUtils, ko, departmentDataJson, ArrayDataProvider, BufferingDataProvider, NumberConverter) {
+ function(accUtils, ko, ArrayDataProvider, BufferingDataProvider, NumberConverter) {
     function CRUDViewModel() {
       // Below are a set of the ViewModel methods invoked by the oj-module component.
       // Please reference the oj-module jsDoc for additional information.
@@ -61,11 +60,23 @@ define([
 
       let self = this;
       
-      self.deptArray = JSON.parse(departmentDataJson);
-      self.deptObservableArray = ko.observableArray(self.deptArray);
+      let deptArray = [
+        { StudentNumber: 10, Name: 'Ionescu', Surname: 'Maria', Algorithms: 10, ASC: 9, Geometry: 10 },
+        { StudentNumber: 20, Name: 'Popescu', Surname: 'Ioana', Algorithms: 9, ASC: 9, Geometry: 7 },
+        { StudentNumber: 30, Name: 'Dumitru', Surname: 'Camila', Algorithms: 9, ASC: 10, Geometry: 9 },
+        { StudentNumber: 40, Name: 'Georgescu', Surname: 'Gina', Algorithms: 8, ASC: 10, Geometry: 10 },
+        { StudentNumber: 50, Name: 'Popa', Surname: 'Ana', Algorithms: 7, ASC: 8, Geometry: 9 },
+        { StudentNumber: 60, Name: 'Nicolae', Surname: 'Dana', Algorithms: 9, ASC: 10, Geometry: 8 },
+        { StudentNumber: 70, Name: 'Ionescu', Surname: 'Raul', Algorithms: 8, ASC: 9, Geometry: 10 },
+        { StudentNumber: 80, Name: 'Papa', Surname: 'Amalia', Algorithms: 8, ASC: 8, Geometry: 9 },
+        { StudentNumber: 90, Name: 'Soare', Surname: 'Vasile', Algorithms: 10, ASC: 10, Geometry: 10 },
+        { StudentNumber: 100, Name: 'Marinescu', Surname: 'Dan', Algorithms: 9, ASC: 10, Geometry: 9 }
+      ];
+
+      self.deptObservableArray = ko.observableArray(deptArray);
       
       self.dataprovider = new BufferingDataProvider(new ArrayDataProvider(self.deptObservableArray, {
-          keyAttributes: "DepartmentId",
+          keyAttributes: "StudentNumber",
       }));
       
       self.converter = new NumberConverter.IntlNumberConverter({
@@ -75,15 +86,19 @@ define([
       self.isEmptyTable = ko.observable(false);
       self.messageArray = ko.observableArray();
       self.groupValid = ko.observable();
-      self.inputDepartmentId = ko.observable();
-      self.inputDepartmentName = ko.observable();
-      self.inputLocationId = ko.observable();
-      self.inputManagerId = ko.observable();
+
+      self.inputStudentNumber = ko.observable(0);
+      self.inputName = ko.observable('');
+      self.inputSurname = ko.observable('');
+      self.inputAlgorithms = ko.observable(0);
+      self.inputASC = ko.observable(0);
+      self.inputGeometry = ko.observable(0);
+      
       self.firstSelected = ko.observable();
       self.disableSubmit = ko.observable(true);
       
       self.disableCreate = ko.computed(() => {
-          return !self.inputDepartmentId() || self.groupValid() === "invalidShown";
+          return !self.inputStudentNumber() || self.groupValid() === "invalidShown";
       });
       
       self.disableRemoveUpdate = ko.computed(() => {
@@ -96,10 +111,12 @@ define([
       self.addRow = () => {
           if (self.groupValid() !== "invalidShown") {
               const dept = {
-                  DepartmentId: self.inputDepartmentId(),
-                  DepartmentName: self.inputDepartmentName(),
-                  LocationId: self.inputLocationId(),
-                  ManagerId: self.inputManagerId(),
+                StudentNumber: self.inputStudentNumber(),
+                Name: self.inputName(),
+                Surname: self.inputSurname(),
+                Algorithms: self.inputAlgorithms(),
+                ASC: self.inputASC(),
+                Geometry: self.inputGeometry()
               };
               self.dataprovider.addItem({
                   metadata: { key: dept.DepartmentId },
@@ -113,12 +130,14 @@ define([
               const element = document.getElementById("table");
               const currentRow = element.currentRow;
               if (currentRow != null) {
-                  const key = self.inputDepartmentId();
+                  const key = self.inputStudentNumber();
                   const newData = {
-                      DepartmentId: self.inputDepartmentId(),
-                      DepartmentName: self.inputDepartmentName(),
-                      LocationId: self.inputLocationId(),
-                      ManagerId: self.inputManagerId(),
+                    StudentNumber: self.inputStudentNumber(),
+                    Name: self.inputName(),
+                    Surname: self.inputSurname(),
+                    Algorithms: self.inputAlgorithms(),
+                    ASC: self.inputASC(),
+                    Geometry: self.inputGeometry()
                   };
                   self.dataprovider.updateItem({ metadata: { key: key }, data: newData });
               }
@@ -264,10 +283,12 @@ define([
           const itemContext = event.detail.value;
           if (itemContext && itemContext.data) {
               const dept = itemContext.data;
-              self.inputDepartmentId(dept.DepartmentId);
-              self.inputDepartmentName(dept.DepartmentName);
-              self.inputLocationId(dept.LocationId);
-              self.inputManagerId(dept.ManagerId);
+              self.inputStudentNumber(dept.StudentNumber);
+              self.inputName(dept.Name);
+              self.inputSurname(dept.Surname);
+              self.inputAlgorithms(dept.Algorithms);
+              self.inputASC(dept.ASC);
+              self.inputGeometry(dept.Geometry);
           }
       };
 
