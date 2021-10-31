@@ -8,8 +8,8 @@
     <div>
         <div id="tableDemo">
             <oj-messages messages="[[messageArray]]"></oj-messages>
-            <div class="oj-flex">
-                <div class="oj-flex-item oj-web-padding">
+            <div class="oj-flex oj-panel oj-bg-info-30 oj-border">
+                <div class="oj-flex-item oj-web-padding oj-panel oj-bg-info-30 oj-border">
                 <oj-validation-group valid="{{groupValid}}">
                     <oj-form-layout>
 
@@ -20,7 +20,7 @@
                                         value="{{inputLocationId}}" converter='[[converter]]'></oj-input-number>
                         <oj-input-number id="managerIdInput" label-hint="Manager Id" max="2000" min="0"
                                         value="{{inputManagerId}}" converter='[[converter]]'></oj-input-number>
-                                        
+
                     </oj-form-layout>
                     <oj-toolbar chroming='outlined'>
                     
@@ -55,9 +55,11 @@
                     </oj-toolbar>
                 </div>
             </div>
-            <div>
-                <oj-label for="bufferContent">Buffered Changes:</oj-label>
-                <oj-text-area id="bufferContent" rows="10" class="demo-table-textarea"></oj-text-area>
+            <div class="oj-flex oj-panel oj-bg-info-30 oj-border">
+                <div class="oj-flex-item oj-web-padding oj-panel oj-bg-info-30 oj-border">
+                    <oj-label for="bufferContent">Buffered Changes:</oj-label>
+                    <oj-text-area id="bufferContent" rows="10" class="demo-table-textarea"></oj-text-area>
+                </div>
             </div>
         </div>
     </div>
