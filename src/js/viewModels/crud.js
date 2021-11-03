@@ -23,7 +23,8 @@ define([
     'ojs/ojtoolbar',
     'ojs/ojmessages',
     'ojs/ojtable',
-    'ojs/ojchart'
+    'ojs/ojchart',
+    'ojs/ojradioset'
 ],
     function (accUtils, ko, ArrayDataProvider, BufferingDataProvider, NumberConverter) {
         function CRUDViewModel() {
@@ -146,6 +147,12 @@ define([
                     self._handleDataTransfer(clipboard);
                 }
             };
+
+            self.currentSelection = ko.observable('single');
+            self.rowSelectionOptions = [
+                { id: 'singleoption', value: 'single', selection: 'Single' },
+                { id: 'multipleoption', value: 'multiple', selection: 'Multiple' }
+            ];
 
             self.disableCreate = ko.computed(() => {
                 return !self.inputStudentNumber() || self.groupValid() === "invalidShown";

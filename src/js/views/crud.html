@@ -45,9 +45,9 @@
                                         {"headerText": "Algorithms", "field": "Algorithms"},
                                         {"headerText": "ASC", "field": "ASC"},
                                         {"headerText": "Geometry", "field": "Geometry"}]'
-                            first-selected-row='{{firstSelected}}'
+                            selection-mode.row="{{currentSelection}}"
+                            first-selected-row="{{firstSelected}}"
                             on-first-selected-row-changed="[[firstSelectedRowChangedListener]]"
-                            selection-mode='{"row": "multiple"}'
                             dnd.drag.rows.data-types='["application/ojtablerows+json"]'>
                     </oj-table>
                     <div id="noDataDiv" class="oj-flex demo-table-container oj-sm-hide">
@@ -79,6 +79,20 @@
                         <oj-input-text id="NameSurnameInput" label-hint="Name Surname" value="{{inputNameSurname}}"></oj-input-text>
                         <oj-input-text id="MeanInput" label-hint="Mean" value="{{inputMean}}"></oj-input-text>
                     </oj-form-layout>
+                </div>
+                <div class="oj-flex-item oj-web-padding oj-panel oj-bg-info-30 oj-border">
+                    <oj-radioset id="radiosetBasicDemoId"
+                        label-hint="Row Selection"
+                        label-edge="inside"
+                        value="{{currentSelection}}">                        
+                        <oj-bind-for-each data="[[rowSelectionOptions]]">
+                            <template>
+                            <oj-option value="[[$current.data.value]]">
+                                <oj-bind-text value="[[$current.data.selection]]"></oj-bind-text>
+                            </oj-option>
+                            </template>
+                        </oj-bind-for-each>
+                    </oj-radioset>
                 </div>
             </div>
             <div class="oj-flex oj-panel oj-bg-info-30 oj-border">
