@@ -4,16 +4,16 @@
  as shown at https://oss.oracle.com/licenses/upl/
  -->
 <div class="oj-hybrid-padding">
-    <h1>CRUD Content Area</h1>
+    <h1>Informatics First Year</h1>
     <div>
         <div id="tableDemo">
             <oj-messages messages="[[messageArray]]"></oj-messages>
             <div class="oj-flex oj-panel oj-bg-info-30 oj-border">
-                <div class="oj-flex-item oj-web-padding oj-panel oj-bg-info-30 oj-border">
+                <div class="oj-flex-item oj-web-padding oj-panel oj-bg-info-30 oj-border oj-md-2">
                     <oj-validation-group valid="{{groupValid}}">
                         <oj-form-layout>
 
-                            <oj-input-number id="StudentNumberInput" max="10" min="0" label-hint="Student Number"
+                            <oj-input-number id="StudentNumberInput" label-hint="Student Number"
                                             value="{{inputStudentNumber}}"></oj-input-number>
                             <oj-input-text id="NameInput" label-hint="Name" value="{{inputName}}"></oj-input-text>
                             <oj-input-text id="SurnameInput" label-hint="Surname" value="{{inputSurname}}"></oj-input-text>
@@ -35,19 +35,20 @@
                         </oj-toolbar>
                     </oj-validation-group>
                 </div>
-                <div id='tableContainer' class="oj-flex-item oj-web-padding">
-                    <oj-table id="table" aria-label="Departments Table"
+                <div id='tableContainer' class="oj-flex-item oj-web-padding oj-panel oj-bg-info-30 oj-border">
+                    <oj-table id="table" aria-label="Students Table"
                             class="demo-table-container oj-bg-body"
-                            data='[[dataprovider]]'
-                            columns='[{"headerText": "StudentNumber", "field": "StudentNumber"},
+                            data="[[dataprovider]]" on-keydown="[[handleKey]]"
+                            columns='[{"headerText": "Student Number", "field": "StudentNumber"},
                                         {"headerText": "Name", "field": "Name"},
                                         {"headerText": "Surname", "field": "Surname"},
                                         {"headerText": "Algorithms", "field": "Algorithms"},
                                         {"headerText": "ASC", "field": "ASC"},
                                         {"headerText": "Geometry", "field": "Geometry"}]'
-                            selection-mode.row='single'
                             first-selected-row='{{firstSelected}}'
-                            on-first-selected-row-changed="[[firstSelectedRowChangedListener]]">
+                            on-first-selected-row-changed="[[firstSelectedRowChangedListener]]"
+                            selection-mode='{"row": "multiple"}'
+                            dnd.drag.rows.data-types='["application/ojtablerows+json"]'>
                     </oj-table>
                     <div id="noDataDiv" class="oj-flex demo-table-container oj-sm-hide">
                         <div class="oj-flex-item oj-sm-align-self-center">
@@ -58,6 +59,17 @@
                         <oj-button id='resetButton' on-oj-action='[[resetRows]]' disabled='[[disableSubmit]]'>Reset Changes</oj-button>
                         <oj-button id='submitButton' on-oj-action='[[submitRows]]' disabled='[[disableSubmit]]'>Submit Changes</oj-button>
                     </oj-toolbar>
+                </div>
+                <div class="oj-flex-item oj-web-padding oj-panel oj-bg-info-30 oj-border oj-md-3">
+                    <oj-chart id="barChart" on-keydown="[[handleKey]]"
+                      type='bar' 
+                      series='[[barSeriesValue]]' 
+                      groups='[[barGroupsValue]]' 
+                      animation-on-display='auto'
+                      animation-on-data-change='auto'
+                      dnd.drop.plot-area.data-types='["application/ojtablerows+json"]'
+                      dnd.drop.plot-area.drop='[[handleDrop]]'>
+                    </oj-chart>
                 </div>
             </div>
             <div class="oj-flex oj-panel oj-bg-info-30 oj-border">
