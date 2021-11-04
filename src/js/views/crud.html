@@ -97,6 +97,52 @@
             </div>
             <div class="oj-flex oj-panel oj-bg-info-30 oj-border">
                 <div class="oj-flex-item oj-web-padding oj-panel oj-bg-info-30 oj-border">
+                    <oj-table id="marksTable" aria-label="Student Table"
+                      data="[[dataProviderTree]]"
+                      class="oj-bg-body demo-table-container oj-md-12"
+                      layout="fixed"
+                      columns='[
+                      {"headerText": "Student Number", "sortProperty": "attr.studentNumber", "weight": 2},
+                      {"headerText": "Name", "sortProperty": "attr.name"},
+                      {"headerText": "Surname", "sortProperty": "attr.surname"}
+                      ]'>
+                        <template slot="rowTemplate" data-oj-as="row">
+                            <tr>
+                                <!-- ko if: row.item.metadata.treeDepth === 0 -->
+                                <td>
+                                    <oj-row-expander context="[[row]]"></oj-row-expander>
+                                    <span><oj-bind-text value="[[row.item.data.attr.studentNumber]]"></oj-bind-text></span>
+                                </td>
+                                <td>
+                                    <span><oj-bind-text value="[[row.item.data.attr.name]]"></oj-bind-text></span>
+                                </td>
+                                <td>
+                                    <span><oj-bind-text value="[[row.item.data.attr.surname]]"></oj-bind-text></span>
+                                </td>
+                                <!-- /ko -->
+                                <!-- ko if: row.item.metadata.treeDepth === 1 -->   
+                                <td colspan="1">
+                                    <span><oj-bind-text value="[[row.item.data.attr.detail]]"></oj-bind-text></span>
+                                </td>
+                                <td colspan="2">
+                                    <oj-chart type="bar"
+                                    series="[[[
+                                    {'name': 'Algorithms', items: [row.item.data.attr.Algorithms]},
+                                    {'name': 'ASC', items: [row.item.data.attr.ASC]},
+                                    {'name': 'Geometry', items: [row.item.data.attr.Geometry]}
+                                    ]]]"
+                                    style-defaults='{"dataLabelPosition": "center"}'
+                                    legend='{"position": "bottom"}'>
+                                    </oj-chart>
+                                </td>
+                                <!-- /ko -->
+                            </tr>
+                        </template>
+                    </oj-table>
+                </div>
+            </div>
+            <div class="oj-flex oj-panel oj-bg-info-30 oj-border">
+                <div class="oj-flex-item oj-web-padding oj-panel oj-bg-info-30 oj-border">
                     <oj-label for="bufferContent">Buffered Changes:</oj-label>
                     <oj-text-area id="bufferContent" rows="10" class="demo-table-textarea"></oj-text-area>
                 </div>

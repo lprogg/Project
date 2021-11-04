@@ -14,6 +14,9 @@ define([
     'ojs/ojarraydataprovider',
     'ojs/ojbufferingdataprovider',
     'ojs/ojconverter-number',
+    'ojs/ojflattenedtreedataproviderview',
+    'ojs/ojarraytreedataprovider',
+    'text!./projectData.json',
     'ojs/ojknockout',
     'ojs/ojinputtext',
     'ojs/ojinputnumber',
@@ -24,9 +27,10 @@ define([
     'ojs/ojmessages',
     'ojs/ojtable',
     'ojs/ojchart',
-    'ojs/ojradioset'
+    'ojs/ojradioset',
+    'ojs/ojrowexpander'
 ],
-    function (accUtils, ko, ArrayDataProvider, BufferingDataProvider, NumberConverter) {
+    function (accUtils, ko, ArrayDataProvider, BufferingDataProvider, NumberConverter, FlattenedTreeDataProviderView, ArrayTreeDataProvider, projectDataJson) {
         function CRUDViewModel() {
             // Below are a set of the ViewModel methods invoked by the oj-module component.
             // Please reference the oj-module jsDoc for additional information.
@@ -85,10 +89,13 @@ define([
             self.barSeriesValue = ko.observableArray(barSeries);
             self.barGroupsValue = ko.observableArray(barGroups);
 
+            self.arrayTreeDataProvider = new ArrayTreeDataProvider(JSON.parse(projectDataJson), { keyAttributes: 'attr.id' });
+            self.dataProviderTree = ko.observable(new FlattenedTreeDataProviderView(self.arrayTreeDataProvider));
+
             self.deptObservableArray = ko.observableArray(deptArray);
 
             self.dataprovider = new BufferingDataProvider(new ArrayDataProvider(self.deptObservableArray, {
-                keyAttributes: "StudentNumber",
+                keyAttributes: 'StudentNumber',
             }));
 
             self.converter = new NumberConverter.IntlNumberConverter({

@@ -1,0 +1,59 @@
+[
+    {
+        "attr": {
+            "id": "t1",
+            "studentNumber": 10,
+            "name": "Ionescu",
+            "surname": "Maria"
+        },
+        "children": [
+            {
+                "attr": {
+                    "id": "t1:1",
+                    "detail": "Obtained Marks:",
+                    "Algorithms": 10,
+                    "ASC": 9,
+                    "Geometry": 10
+                }
+            }
+        ]
+    },
+    {
+        "attr": {
+            "id": "t2",
+            "studentNumber": 20,
+            "name": "Popescu",
+            "surname": "Ioana"
+        },
+        "children": [
+            {
+                "attr": {
+                    "id": "t2:1",
+                    "detail": "Obtained Marks:",
+                    "Algorithms": 9,
+                    "ASC": 9,
+                    "Geometry": 7
+                }
+            }
+        ]
+    },
+    {
+        "attr": {
+            "id": "t3",
+            "studentNumber": 30,
+            "name": "Dumitru",
+            "surname": "Camila"
+        },
+        "children": [
+            {
+                "attr": {
+                    "id": "t3:1",
+                    "detail": "Obtained Marks:",
+                    "Algorithms": 9,
+                    "ASC": 10,
+                    "Geometry": 9
+                }
+            }
+        ]
+    }
+]
